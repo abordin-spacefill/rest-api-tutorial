@@ -215,6 +215,7 @@ The `edi_erp_id`, `edi_wms_id` and `edi_tms_id` fields can be used to identify t
 You can get more information about CRUD on each resource using the following links:
 
 - [Orders](./crud/orders.md)
+- [Master items](./crud/master_items.md)
 
 ## FAQ
 
