@@ -122,8 +122,6 @@ $ curl -sLX 'POST' \
   "transport_management_owner": "PROVIDER",
   "entry_expeditor": "Expeditor X",
   "entry_expeditor_address_line1": "123 Boulevard X",
-  "entry_expeditor_address_line2": "",
-  "entry_expeditor_address_line3": "",
   "entry_expeditor_address_zip": "75020",
   "entry_expeditor_address_city": "Paris",
   "entry_expeditor_address_country": "France",
@@ -172,8 +170,6 @@ $ curl -sLX 'POST' \
   "transport_management_owner": "PROVIDER",
   "exit_final_recipient": "Recipient X",
   "exit_final_recipient_address_line1": "123 Boulevard X",
-  "exit_final_recipient_address_line2": "",
-  "exit_final_recipient_address_line3": "",
   "exit_final_recipient_address_zip": "75020",
   "exit_final_recipient_address_city": "Paris",
   "exit_final_recipient_address_country": "France",
@@ -366,8 +362,6 @@ If the following fields correspond to an existing address in your [`address-book
 
 - `entry_expeditor`
 - `entry_expeditor_address_line1`
-- `entry_expeditor_address_line2`
-- `entry_expeditor_address_line3`
 - `entry_expeditor_address_zip`
 - `entry_expeditor_address_details`
 - `entry_expeditor_address_city`
@@ -379,8 +373,6 @@ or
 
 - `exit_final_recipient`
 - `exit_final_recipient_address_line1`
-- `exit_final_recipient_address_line2`
-- `exit_final_recipient_address_line3`
 - `exit_final_recipient_address_zip`
 - `exit_final_recipient_address_details`
 - `exit_final_recipient_address_city`
@@ -402,8 +394,6 @@ $ curl -sLX 'POST' \
   ...
   "entry_expeditor": "Expeditor X",
   "entry_expeditor_address_line1": "123 Boulevard X",
-  "entry_expeditor_address_line2": "",
-  "entry_expeditor_address_line3": "",
   "entry_expeditor_address_zip": "75020",
   "entry_expeditor_address_city": "Paris",
   "entry_expeditor_address_country": "France",
