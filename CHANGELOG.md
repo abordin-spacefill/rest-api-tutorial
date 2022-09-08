@@ -1,5 +1,14 @@
 # api.spacefill.fr changelog
 
+## 2022-09-08
+
+Updated endpoints:
+
+- `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action`:
+  - `order_items[].expected_quantity` input field is removed (no breaking change, the `expected_quantity` field is still accepted but it is ignored)
+  - `order_items[].actual_quantity` input field is mandatory
+
+
 ## 2022-06-30
 
 Updated endpoints:
