@@ -6,6 +6,16 @@ Fix bug:
 
 - `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action` return an 404 error when `order_id` not exists
 
+Updated endpoints:
+
+- `order_items` batch can be selected by `batch_name` in this endpoints:
+    - `POST /v1/logistic_management/orders/entry/`
+    - `POST /v1/logistic_management/orders/exit/`
+    - `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action`
+    - `POST /v1/logistic_management/orders/{order_id}/shipper_updates_order_action`
+    - `POST /v1/logistic_management/orders/warehouse_creates_order_action`
+    - `POST /v1/logistic_management/inventory_adjustments/`
+
 
 ## 2022-09-12
 
