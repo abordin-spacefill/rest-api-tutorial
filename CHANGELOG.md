@@ -1,5 +1,12 @@
 # api.spacefill.fr changelog
 
+## 2022-09-12
+
+Updated endpoints:
+
+- `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action`
+  - `order_items[].id` is now optionnal when `order_items[].master_item_id` and `item_packaging_type": "PALLET"` are filled
+
 ## 2022-09-08
 
 Updated endpoints:
