@@ -16,6 +16,7 @@ This tutorial is based on [`curl`](https://en.wikipedia.org/wiki/CURL) command l
     - [How to manage order documents (attachments)?](#how-to-manage-order-documents-attachments)
     - [How entry_expeditor\* and exit_final_recipient\* fields work on /v1/orders/*](#how-entry_expeditor-and-exit_final_recipient-fields-work-on-v1orders)
     - [How to use `edi_erp_id`, `edi_wms_id`, `edi_tms_id` fields on `orders` and `master_items`?](#how-to-use-edi_erp_id-edi_wms_id-edi_tms_id-fields-on-orders-and-master_items)
+    - [How to refer to a warehouse using your own identifiers?](#how-to-refer-to-a-warehouse-using-your-own-identifiers)
 
 See also: [CHANGELOG.md](./CHANGELOG.md)
 
@@ -548,5 +549,65 @@ Response:
       "actual_quantity": null
     }
   ]
+}
+```
+
+## How to refer to a warehouse using your own identifiers?
+
+Similarly to `orders` and `master_items`, some endpoints provide a way to refer to a warehouse using your own identifiers, coming from your own ERP, WMS or TMS. These identifiers can be used as an alternative to specifying a Spacefill `id` (identifier) with the attribute `warehouse_id`.
+
+A warehouse can be referred using these attributes:
+* `edi_erp_warehouse_id`
+* `edi_wms_warehouse_id`
+* `edi_tms_warehouse_id`
+
+As warehouse users also need to specify which shipper they are referring to (e.g. when creating an `order`), these attributes can be used instead of `shipper_account_id`:
+* `edi_erp_shipper_id`
+* `edi_wms_shipper_id`
+* `edi_tms_shipper_id`
+
+Your identifiers need to be communicated to Spacefill.
+
+Then, you will be able to use these attributes with your own identifiers instead of specifying `warehouse_id` (here, `edi_wms_shipper_id` has been specified):
+
+```sh
+$ curl -sLX 'POST' \
+  'https://api.sandbox.spacefill.fr/v1/logistic_management/orders/entry/' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer secret' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "edi_wms_shipper_id": "987654",
+  "order_items": [
+    {
+      "edi_wms_id": "123456",
+      "batch_id": null,
+      "item_packaging_type": "PALLET",
+      "expected_quantity": 1
+    }
+  ],
+  "planned_execution_datetime_range": {
+    "datetime_from": "2021-09-28T15:12:41.538Z",
+    "datetime_to": "2021-09-28T15:12:41.538Z"
+  },
+  "entry_expeditor_planned_datetime_range": {
+    "datetime_from": "2021-09-28T15:12:41.538Z",
+    "datetime_to": "2021-09-28T15:12:41.538Z"
+  }
+}'
+```
+
+These identifiers are returned by various endpoints, such as when referring to an `order`:
+
+```json
+{
+  "...": "...",
+  "edi_erp_shipper_id": null,
+  "edi_wms_shipper_id": "987654",
+  "edi_tms_shipper_id": null,
+  "edi_erp_warehouse_id": null,
+  "edi_wms_warehouse_id": null,
+  "edi_tms_warehouse_id": null,
+  "...": "..."
 }
 ```
