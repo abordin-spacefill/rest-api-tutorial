@@ -15,6 +15,7 @@ This tutorial is based on [`curl`](https://en.wikipedia.org/wiki/CURL) command l
       - [Server push method with webhook](#server-push-method-with-webhook)
     - [How to manage order documents (attachments)?](#how-to-manage-order-documents-attachments)
     - [How entry_expeditor\* and exit_final_recipient\* fields work on /v1/orders/*](#how-entry_expeditor-and-exit_final_recipient-fields-work-on-v1orders)
+    - [How to use `edi_erp_id`, `edi_wms_id`, `edi_tms_id` fields on `orders` and `master_items`?](#how-to-use-edi_erp_id-edi_wms_id-edi_tms_id-fields-on-orders-and-master_items)
 
 See also: [CHANGELOG.md](./CHANGELOG.md)
 
@@ -204,7 +205,7 @@ You can now view your data on Spacefill app at `https://app.spacefill.fr`:
 - To view your master_items go to [`https://app.spacefill.fr/logistic-management/inventory/items/`](https://app.spacefill.fr/logistic-management/inventory/items/)
   [<img src='spacefill-app-master-items-view.png' width='600' />](./spacefill-app-master-items-view.png)
 
-The `edi_erp_id`, `edi_wms_id` and `edi_tms_id` fields can be used to identify the `master_item` or `order` on your own ERP, WMS or TMS implementation. These fields can only be fetched, inserted and updated using the API. They are not visible on the Spacefill app.
+The `edi_erp_id`, `edi_wms_id` and `edi_tms_id` fields can be used to identify the `master_item` or `order` using your own ERP, WMS or TMS resource `id` (identifiers), instead of Spacefill `id`. These fields can only be fetched, inserted and updated using the API. They are not visible on the Spacefill app. For more information, you can read the [scenario presented below](#how-to-use-edi_erp_id-edi_wms_id-edi_tms_id-fields-on-orders-and-master_items).
 
 ## CRUD list
 
@@ -407,3 +408,145 @@ $ curl -sLX 'POST' \
 
 We will search for a corresponding address in your [`address-book`](https://app.spacefill.fr/logistic-management/address-book/),
 if the address does not exist we will create it. Then if you execute this query a second time we will use the address created before.
+
+## How to use `edi_erp_id`, `edi_wms_id`, `edi_tms_id` fields on `orders` and `master_items`?
+
+It can be tedious to refer to resources using Spacefill `id` (identifiers), as it would require to maintain a list of these identifiers. If your ERP, WMS or TMS already attribute identifiers to `orders` and `master_items`, it is possible to register these identifiers when using the API.
+
+You can register the identifiers coming from your ERP, WMS or TMS using the attributes `edi_erp_id`, `edi_wms_id` or `edi_tms_id`, respectively.
+
+Note that these identifiers can only be fetched, inserted and updated using the API and are not visible on the Spacefill app.
+
+Also note that you can refer to a `master_item` using the `item_reference` attribute, which is displayed on the Spacefill app as `Reference`.
+
+Here is an example to demonstrate their usage.
+
+Let us create a `master_item` with a WMS identifier:
+
+```sh
+$ curl -sLX 'POST' \
+  'https://api.sandbox.spacefill.fr/v1/logistic_management/master_items/' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer secret' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "item_reference": "POTATOES1KG",
+  "designation": "Potatoes 1Kg",
+  "each_quantity_by_pallet": 80,
+  "edi_wms_id": "100000"
+}'
+```
+
+Response:
+
+```json
+{
+  "id": "1ddddddd-1ddd-1ddd-1ddd-1dddddddddd",
+  "...": "...",
+  "item_reference": "POTATOES1KG",
+  "designation": "Potatoes 1Kg",
+  "each_quantity_by_pallet": 80,
+  "...": "...",
+  "edi_erp_id": null,
+  "edi_wms_id": "100000",
+  "edi_tms_id": null,
+  "...": "..."
+}
+```
+
+Note that these identifiers are independent:
+
+```sh
+$ curl -sLX 'POST' \
+  'https://api.sandbox.spacefill.fr/v1/logistic_management/master_items/' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer secret' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "item_reference": "POTATOES2KG",
+  "designation": "Potatoes 2Kg",
+  "each_quantity_by_pallet": 50,
+  "edi_erp_id": "123456",
+  "edi_wms_id": "123456",
+  "edi_tms_id": "123456"
+}'
+```
+
+Response:
+
+```json
+{
+  "id": "1ddddddd-1ddd-1ddd-1ddd-1dddddddddd",
+  "...": "...",
+  "item_reference": "POTATOES2KG",
+  "designation": "Potatoes 2Kg",
+  "each_quantity_by_pallet": 50,
+  "...": "...",
+  "edi_erp_id": "123456",
+  "edi_wms_id": "123456",
+  "edi_tms_id": "123456",
+  "...": "..."
+}
+```
+
+Now, you can create an `order` referencing this `master_item` by using your own identifiers, instead of using `master_item_id`. Let us also add corresponding identifiers to the created `order`:
+
+```sh
+$ curl -sLX 'POST' \
+  'https://api.sandbox.spacefill.fr/v1/logistic_management/orders/entry/' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer secret' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "edi_erp_id": "654321",
+  "edi_wms_id": "654321",
+  "edi_tms_id": "654321",
+  "order_items": [
+    {
+      "edi_wms_id": "123456",
+      "batch_id": null,
+      "item_packaging_type": "PALLET",
+      "expected_quantity": 1
+    }
+  ],
+  "warehouse_id": "d8bdc728-242b-4039-99a3-0aa239650011",
+  "planned_execution_datetime_range": {
+    "datetime_from": "2021-09-28T15:12:41.538Z",
+    "datetime_to": "2021-09-28T15:12:41.538Z"
+  },
+  "entry_expeditor_planned_datetime_range": {
+    "datetime_from": "2021-09-28T15:12:41.538Z",
+    "datetime_to": "2021-09-28T15:12:41.538Z"
+  }
+}'
+```
+
+Response:
+
+```json
+{
+  "id": "1ddddddd-1ddd-1ddd-1ddd-1dddddddddd",
+  "iid": null,
+  "...": "...",
+  "order_type": "ENTRY",
+  "status": "WAREHOUSE_NEEDS_TO_CONFIRM_PLANNED_EXECUTION_DATE_STATE",
+  "...": "...",
+  "edi_erp_id": "654321",
+  "edi_wms_id": "654321",
+  "edi_tms_id": "654321",
+  "...": "...",
+  "order_items": [
+    {
+      "...": "...",
+      "edi_erp_id": "123456",
+      "edi_wms_id": "123456",
+      "edi_tms_id": "123456",
+      "batch_id": null,
+      "position": 1,
+      "item_packaging_type": "PALLET",
+      "expected_quantity": 1,
+      "actual_quantity": null
+    }
+  ]
+}
+```
