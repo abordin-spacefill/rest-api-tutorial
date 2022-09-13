@@ -107,7 +107,7 @@ After these `master-items` creation, we can create an entry `order` with those i
 
 ```sh
 $ curl -sLX 'POST' \
-  'https://api.sandbox.spacefill.fr/v1/logistic_management/orders/entry' \
+  'https://api.sandbox.spacefill.fr/v1/logistic_management/orders/entry/' \
   -H 'accept: application/json' \
   -H 'Authorization: Bearer secret' \
   -H 'Content-Type: application/json' \
@@ -155,7 +155,7 @@ Or an exit `order` with those items:
 
 ```sh
 $ curl -sLX 'POST' \
-  'https://api.sandbox.spacefill.fr/v1/logistic_management/orders/exit' \
+  'https://api.sandbox.spacefill.fr/v1/logistic_management/orders/exit/' \
   -H 'accept: application/json' \
   -H 'Authorization: Bearer secret' \
   -H 'Content-Type: application/json' \
@@ -388,7 +388,7 @@ For example the first time you execute:
 
 ```sh
 $ curl -sLX 'POST' \
-  'https://api.sandbox.spacefill.fr/v1/logistic_management/orders/entry' \
+  'https://api.sandbox.spacefill.fr/v1/logistic_management/orders/entry/' \
   -H 'accept: application/json' \
   -H 'Authorization: Bearer secret' \
   -H 'Content-Type: application/json' \
