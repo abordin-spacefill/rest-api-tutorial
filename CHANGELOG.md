@@ -1,5 +1,18 @@
 # api.spacefill.fr changelog
 
+## 2022-09-14
+
+Updated endpoints:
+
+- `order_items` `batch` is directly created if the couple master_item and `batch_name` is not found, this behaviour is available for this endpoints:
+  - `POST /v1/logistic_management/orders/entry/`
+  - `POST /v1/logistic_management/orders/exit/`
+  - `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action`
+  - `POST /v1/logistic_management/orders/{order_id}/shipper_updates_order_action`
+  - `POST /v1/logistic_management/orders/warehouse_creates_order_action`
+  - `POST /v1/logistic_management/inventory_adjustments/`
+
+
 ## 2022-09-13
 
 Fix bug:
