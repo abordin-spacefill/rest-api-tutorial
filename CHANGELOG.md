@@ -11,6 +11,8 @@ Updated endpoints:
   - `POST /v1/logistic_management/orders/{order_id}/shipper_updates_order_action`
   - `POST /v1/logistic_management/orders/warehouse_creates_order_action`
   - `POST /v1/logistic_management/inventory_adjustments/`
+- `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action`:
+  - `master_item` can be selected by `order_items[].item_reference`
 
 
 ## 2022-09-13
