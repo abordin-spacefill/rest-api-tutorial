@@ -1,5 +1,13 @@
 # api.spacefill.fr changelog
 
+## 2022-09-16
+
+Updated endpoints:
+
+- `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action` support new field: `order_items[ ].pallet_sscc`
+- `POST https://api.spacefill.fr/v1/logistic_management/orders/exit/` support new field: `order_items[ ].pallet_sscc`
+
+
 ## 2022-09-14
 
 Updated endpoints:
