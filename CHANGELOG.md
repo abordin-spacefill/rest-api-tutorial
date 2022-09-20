@@ -1,5 +1,13 @@
 # api.spacefill.fr changelog
 
+## 2022-09-20
+
+Updated endpoints:
+
+- `GET /v1/logistic_management/orders/` return `pallet_sscc` field in `order_items` list
+- `GET /v1/logistic_management/orders/{order_id}/` return `pallet_sscc` field in `order_items` list
+
+
 ## 2022-09-16
 
 Updated endpoints:
