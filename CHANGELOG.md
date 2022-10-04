@@ -1,5 +1,11 @@
 # api.spacefill.fr changelog
 
+## 2022-10-04
+
+Fix bug:
+
+- `GET /v1/logistic_management/master_items/?shipper_account_id=xxxx` return an 500 error
+
 ## 2022-09-20
 
 Updated endpoints:
