@@ -560,15 +560,17 @@ A warehouse can be referred using these attributes:
 * `edi_erp_warehouse_id`
 * `edi_wms_warehouse_id`
 * `edi_tms_warehouse_id`
-
-As warehouse users also need to specify which shipper they are referring to (e.g. when creating an `order`), these attributes can be used instead of `shipper_account_id`:
 * `edi_erp_shipper_id`
 * `edi_wms_shipper_id`
 * `edi_tms_shipper_id`
 
+For example, a customer can refer to different warehouses using `edi_erp_warehouse_id`.
+
+**Caution:** Presently, a logistic provider cannot use the same values for two `edi_wms_warehouse_id` attributes when referring to the same warehouse used by different customers, but this is subject to future improvements.
+
 Your identifiers need to be communicated to Spacefill.
 
-Then, you will be able to use these attributes with your own identifiers instead of specifying `warehouse_id` (here, `edi_wms_shipper_id` has been specified):
+Then, you will be able to use these attributes with your own identifiers instead of specifying `warehouse_id` (here, `edi_erp_warehouse_id` has been specified):
 
 ```sh
 $ curl -sLX 'POST' \
@@ -577,7 +579,7 @@ $ curl -sLX 'POST' \
   -H 'Authorization: Bearer secret' \
   -H 'Content-Type: application/json' \
   -d '{
-  "edi_wms_shipper_id": "987654",
+  "edi_erp_warehouse_id": "987654",
   "order_items": [
     {
       "edi_wms_id": "123456",
@@ -603,9 +605,9 @@ These identifiers are returned by various endpoints, such as when referring to a
 {
   "...": "...",
   "edi_erp_shipper_id": null,
-  "edi_wms_shipper_id": "987654",
+  "edi_wms_shipper_id": null,
   "edi_tms_shipper_id": null,
-  "edi_erp_warehouse_id": null,
+  "edi_erp_warehouse_id": "987654",
   "edi_wms_warehouse_id": null,
   "edi_tms_warehouse_id": null,
   "...": "..."
