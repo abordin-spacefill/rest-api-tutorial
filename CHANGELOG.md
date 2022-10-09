@@ -1,5 +1,12 @@
 # api.spacefill.fr changelog
 
+## 2022-10-10
+
+New endpoint:
+
+- [`GET /v1/logistic_management/pallet-ssccs/`](https://api.spacefill.fr/docs#/logistic-management/get_v1_logistic_management_pallet_sscc_list_v1_logistic_management_pallet_ssccs__get)
+
+
 ## 2022-10-04
 
 Fix bug:
