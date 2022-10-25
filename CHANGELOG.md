@@ -1,5 +1,13 @@
 # api.spacefill.fr changelog
 
+## 2022-10-25
+
+Updated endpoints:
+
+- [`GET /v1/logistic_management/inventory_adjustments/`](https://api.spacefill.fr/docs#/logistic-management/get_v1_logistic_management_inventory_adjustement_list_v1_logistic_management_inventory_adjustments__get) return `pallet_sscc` field in `inventory_adjustement_items` list
+- [`POST /v1/logistic_management/inventory_adjustments/`](https://api.spacefill.fr/docs#/logistic-management/post_v1_logistic_management_inventory_adjustement_v1_logistic_management_inventory_adjustments__post) support `pallet_sscc` input field in `inventory_adjustement_items` list
+
+
 ## 2022-10-10
 
 New endpoint:
