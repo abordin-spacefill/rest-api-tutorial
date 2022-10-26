@@ -1,5 +1,15 @@
 # api.spacefill.fr changelog
 
+## 2022-10-26
+
+Version `1.0.0` released.
+
+Notes:
+
+- some specification changes may still occur on version 1.x.x of this API but without breaking changes
+- this API versioning follows Semantic Versioning guidelines
+
+
 ## 2022-10-25
 
 Updated endpoints:
