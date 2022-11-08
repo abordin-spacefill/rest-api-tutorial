@@ -1,4 +1,4 @@
-# Tutoriel d'utilisation de l'API REST de l'OMS de SpaceFill
+# Tutoriel d'utilisation de l'API REST de SpaceFill
 
 Une version plus complète de cette documentation est disponible en anglais : [README.md](README.md).
 

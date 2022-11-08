@@ -1,10 +1,8 @@
-# SpaceFill OMS REST API usage tutorial
-
-For more information about OMS (Order Management System) see this Wikipedia article: https://en.wikipedia.org/wiki/Order_management_system
+# SpaceFill REST API usage tutorial
 
 This tutorial is based on [`curl`](https://en.wikipedia.org/wiki/CURL) command line tool.
 
-- [SpaceFill OMS REST API usage tutorial](#spacefill-oms-rest-api-usage-tutorial)
+- [SpaceFill REST API usage tutorial](#spacefill-rest-api-usage-tutorial)
   - [Environments](#environments)
   - [Getting started](#getting-started)
   - [CRUD list](#crud-list)
@@ -221,10 +219,10 @@ You can get more information about CRUD on each resource using the following lin
 
 Here are the different order status and their definitions:
 
-- `WAREHOUSE_NEEDS_TO_CONFIRM_PLANNED_EXECUTION_DATE_STATE`: status used only when "appointment" feature is enabled in SpaceFill OMS.<br />
+- `WAREHOUSE_NEEDS_TO_CONFIRM_PLANNED_EXECUTION_DATE_STATE`: status used only when "appointment" feature is enabled in SpaceFill Product.<br />
   When a "order" is created by shipper user, the logistic provider must confirm that it is available to receive/ship
   goods in this time slot.
-- `SHIPPER_NEEDS_TO_SUGGEST_NEW_PLANNED_EXECUTION_DATE_STATE`: status used only when "appointment" feature is enabled in SpaceFill OMS.<br />
+- `SHIPPER_NEEDS_TO_SUGGEST_NEW_PLANNED_EXECUTION_DATE_STATE`: status used only when "appointment" feature is enabled in SpaceFill Product.<br />
   When a "order" is created by shipper user, if the warehouse time slot is not available, then the shipper user must
   suggest a new time slot.
 - `ORDER_IS_READY_TO_BE_EXECUTED_STATE`: everything is ready, the "order" is awaiting completion.
