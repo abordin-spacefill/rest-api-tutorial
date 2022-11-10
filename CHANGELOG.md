@@ -1,5 +1,51 @@
 # api.spacefill.fr changelog
 
+## 2022-11-15
+
+Updated endpoints:
+
+- `GET /v1/logistic_management/master_items/{master_item_id}/`:
+  - in `global_stock`:
+    - `global_stock.number_of_eaches` field added
+    - `global_stock.number_of_complete_cardboard_box` field added
+    - `global_stock.number_of_incomplete_cardboard_box` field added
+    - `global_stock.number_of_complete_pallet` field added
+    - `global_stock.number_of_incomplete_pallet` field added
+    - `global_stock.each_actual_quantity` field is deprecated, use number_of_eaches fields instead
+    - `global_stock.cardboard_box_actual_quantity` field is deprecated, use number_of_complete_cardboard_box and number_of_incomplete_cardboard_box fields instead
+    - `global_stock.pallet_actual_quantity` field is deprecated, use number_of_complete_pallet and number_of_incomplete_pallet fields instead
+  - in `stock_by_warehouse`:
+    - `stock_by_warehouse.number_of_eaches` field added
+    - `stock_by_warehouse.number_of_complete_cardboard_box` field added
+    - `stock_by_warehouse.number_of_incomplete_cardboard_box` field added
+    - `stock_by_warehouse.stock_by_warehouse.number_of_complete_pallet` field added
+    - `stock_by_warehouse.number_of_incomplete_pallet` field added
+    - `stock_by_warehouse.each_actual_quantity` field is deprecated, use number_of_eaches fields instead
+    - `stock_by_warehouse.cardboard_box_actual_quantity` field is deprecated, use number_of_complete_cardboard_box and number_of_incomplete_cardboard_box fields instead
+    - `stock_by_warehouse.pallet_actual_quantity` field is deprecated, use number_of_complete_pallet and number_of_incomplete_pallet fields instead
+  - in `global_forecasted_quantity`:
+    - `global_forecasted_quantity.number_of_eaches` field added
+    - `global_forecasted_quantity.number_of_complete_cardboard_box` field added
+    - `global_forecasted_quantity.number_of_incomplete_cardboard_box` field added
+    - `global_forecasted_quantity.stock_by_warehouse.number_of_complete_pallet` field added
+    - `global_forecasted_quantity.number_of_incomplete_pallet` field added
+    - `global_forecasted_quantity.each_actual_quantity` field is deprecated, use number_of_eaches fields instead
+    - `global_forecasted_quantity.cardboard_box_actual_quantity` field is deprecated, use number_of_complete_cardboard_box and number_of_incomplete_cardboard_box fields instead
+    - `global_forecasted_quantity.pallet_actual_quantity` field is deprecated, use number_of_complete_pallet and number_of_incomplete_pallet fields instead
+  - in `forecasted_quantity_by_warehouse`:
+    - `number_of_eaches` field added
+    - `number_of_complete_pallet` field added
+    - `number_of_incomplete_pallet` field added
+    - `number_of_complete_cardboard_box` field added
+    - `number_of_incomplete_cardboard_box` field added
+    - `forecasted_quantity_by_warehouse.each_forecasted_quantity` field is deprecated, use number_of_eaches fields instead
+    - `forecasted_quantity_by_warehouse.cardboard_box_forecasted_quantity` field is deprecated, use number_of_complete_cardboard_box and number_of_incomplete_cardboard_box fields instead
+    - `forecasted_quantity_by_warehouse.pallet_forecasted_quantity` field is deprecated, use number_of_complete_pallet and number_of_incomplete_pallet fields instead
+    - `forecasted_quantity_by_warehouse.each_forecasted_whole_quantity` field is deprecated, use number_of_eaches field instead
+    - `forecasted_quantity_by_warehouse.cardboard_box_forecasted_whole_quantity` field is deprecated, use number_of_complete_cardboard_box and number_of_incomplete_cardboard_box fields instead
+    - `forecasted_quantity_by_warehouse.pallet_forecasted_whole_quantity` field is deprecated, use number_of_complete_pallet and number_of_incomplete_pallet fields instead
+
+
 ## 2022-10-26
 
 Version `1.0.0` released.
