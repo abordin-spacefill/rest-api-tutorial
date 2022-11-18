@@ -1,5 +1,15 @@
 # api.spacefill.fr changelog
 
+## 2022-11-25
+
+Updated endpoints:
+
+- `GET /v1/logistic_management/master_items/` add `first`, `prev`, `next`, `last` paginate fields in response
+- `GET /v1/logistic_management/batches/` add `first`, `prev`, `next`, `last` paginate fields in response
+- `GET /v1/logistic_management/orders/` add `first`, `prev`, `next`, `last` paginate fields in response
+- `GET /v1/logistic_management/inventory_adjustments/` add `first`, `prev`, `next`, `last` paginate fields in response
+- `GET /v1/logistic_management/pallet-ssccs/` add `first`, `prev`, `next`, `last` paginate fields in response
+
 ## 2022-11-15
 
 Updated endpoints:
@@ -45,7 +55,6 @@ Updated endpoints:
     - `forecasted_quantity_by_warehouse.cardboard_box_forecasted_whole_quantity` field is deprecated, use number_of_complete_cardboard_box and number_of_incomplete_cardboard_box fields instead
     - `forecasted_quantity_by_warehouse.pallet_forecasted_whole_quantity` field is deprecated, use number_of_complete_pallet and number_of_incomplete_pallet fields instead
 
-
 ## 2022-10-26
 
 Version `1.0.0` released.
@@ -55,7 +64,6 @@ Notes:
 - some specification changes may still occur on version 1.x.x of this API but without breaking changes
 - this API versioning follows Semantic Versioning guidelines
 
-
 ## 2022-10-25
 
 Updated endpoints:
@@ -63,13 +71,11 @@ Updated endpoints:
 - [`GET /v1/logistic_management/inventory_adjustments/`](https://api.spacefill.fr/docs#/logistic-management/get_v1_logistic_management_inventory_adjustement_list_v1_logistic_management_inventory_adjustments__get) return `pallet_sscc` field in `inventory_adjustement_items` list
 - [`POST /v1/logistic_management/inventory_adjustments/`](https://api.spacefill.fr/docs#/logistic-management/post_v1_logistic_management_inventory_adjustement_v1_logistic_management_inventory_adjustments__post) support `pallet_sscc` input field in `inventory_adjustement_items` list
 
-
 ## 2022-10-10
 
 New endpoint:
 
 - [`GET /v1/logistic_management/pallet-ssccs/`](https://api.spacefill.fr/docs#/logistic-management/get_v1_logistic_management_pallet_sscc_list_v1_logistic_management_pallet_ssccs__get)
-
 
 ## 2022-10-04
 
@@ -84,14 +90,12 @@ Updated endpoints:
 - `GET /v1/logistic_management/orders/` return `pallet_sscc` field in `order_items` list
 - `GET /v1/logistic_management/orders/{order_id}/` return `pallet_sscc` field in `order_items` list
 
-
 ## 2022-09-16
 
 Updated endpoints:
 
 - `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action` support new field: `order_items[ ].pallet_sscc`
 - `POST https://api.spacefill.fr/v1/logistic_management/orders/exit/` support new field: `order_items[ ].pallet_sscc`
-
 
 ## 2022-09-14
 
@@ -107,7 +111,6 @@ Updated endpoints:
 - `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action`:
   - `master_item` can be selected by `order_items[].item_reference`
 
-
 ## 2022-09-13
 
 Fix bug:
@@ -117,13 +120,12 @@ Fix bug:
 Updated endpoints:
 
 - `order_items` batch can be selected by `batch_name` in this endpoints:
-    - `POST /v1/logistic_management/orders/entry/`
-    - `POST /v1/logistic_management/orders/exit/`
-    - `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action`
-    - `POST /v1/logistic_management/orders/{order_id}/shipper_updates_order_action`
-    - `POST /v1/logistic_management/orders/warehouse_creates_order_action`
-    - `POST /v1/logistic_management/inventory_adjustments/`
-
+  - `POST /v1/logistic_management/orders/entry/`
+  - `POST /v1/logistic_management/orders/exit/`
+  - `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action`
+  - `POST /v1/logistic_management/orders/{order_id}/shipper_updates_order_action`
+  - `POST /v1/logistic_management/orders/warehouse_creates_order_action`
+  - `POST /v1/logistic_management/inventory_adjustments/`
 
 ## 2022-09-12
 
@@ -132,7 +134,6 @@ Updated endpoints:
 - `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action`
   - `order_items[].id` is now optional when `order_items[].master_item_id` and `item_packaging_type": "PALLET"` are filled
 
-
 ## 2022-09-08
 
 Updated endpoints:
@@ -140,7 +141,6 @@ Updated endpoints:
 - `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action`:
   - `order_items[].expected_quantity` input field is removed (no breaking change, the `expected_quantity` field is still accepted but it is ignored)
   - `order_items[].actual_quantity` input field is mandatory
-
 
 ## 2022-06-30
 
@@ -163,7 +163,6 @@ Updated endpoints:
 - `POST /v1/logistic_management/orders/{order_id}/shipper_updates_order_action`:
   - the `edi_erp_id`, `edi_wms_id`, `edi_tms_id` fields are returned in `orders_items` list
 
-
 ## 2022-06-14
 
 New endpoints:
@@ -174,14 +173,14 @@ Updated endpoints:
 
 - `POST /v1/logistic_management/orders/entry/`:
   - accept `item_reference` field in `order_items` array in input request body
-  - accept `edi_erp_id` field in `order_items` array in input request  body
-  - accept `edi_wms_id` field in `order_items` array in input request  body
-  - accept `edi_tms_id` field in `order_items` array in input request  body
+  - accept `edi_erp_id` field in `order_items` array in input request body
+  - accept `edi_wms_id` field in `order_items` array in input request body
+  - accept `edi_tms_id` field in `order_items` array in input request body
 - `POST /v1/logistic_management/orders/exit/`:
   - accept `item_reference` field in `order_items` array in input request body
-  - accept `edi_erp_id` field in `order_items` array in input request  body
-  - accept `edi_wms_id` field in `order_items` array in input request  body
-  - accept `edi_tms_id` field in `order_items` array in input request  body
+  - accept `edi_erp_id` field in `order_items` array in input request body
+  - accept `edi_wms_id` field in `order_items` array in input request body
+  - accept `edi_tms_id` field in `order_items` array in input request body
 - `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action`:
   - `additional_order_items` field removed, now you can deliver all order items in `order_items`
 - `GET /v1/logistic_management/master_items/{master_item_id}/`
@@ -232,13 +231,11 @@ New endpoints:
 
 - `POST /v1/logistic_management/orders/{order_id}/warehouse_starts_unloading_action`, more information see [Swagger documentation](https://api.spacefill.fr/docs#%2Flogistic-management%2Fpost_v1_logistic_management_warehouse_starts_unloading_action_v1_logistic_management_orders__order_id__warehouse_starts_unloading_action_post=)
 
-
 ## 2022-06-03
 
 Updated endpoints:
 
 - `POST /v1/logistic_management/master_items` can now be used by a `warehouse-user`
-
 
 ## 2022-05-31
 
@@ -253,13 +250,11 @@ Updated endpoints:
   - return `tms_status` field in response
 - `PATCH /v1/logistic_management/orders/{order_id}/` accept `tms_status` in request input
 
-
 ## 2022-05-24
 
 New endpoint:
 
 - `POST /v1/logistic_management/master_items`
-
 
 ## 2022-05-18
 
@@ -374,22 +369,21 @@ Updated endpoints:
   - `edi_wms_id`
   - `edi_tms_id`
 
-
 ## 2022-05-10
 
 - Endpoint that is now implemented:
+
   - `POST /v1/logistic_management/orders/{order_id}/shipper_updates_order_action`, more info see [Swagger documentation](https://api.spacefill.fr/docs#/logistic-management/post_v1_logistic_management_shipper_updates_order_action_v1_logistic_management_orders__order_id__shipper_updates_order_action_post)
 
 - New endpoint not implemented:
-  - `POST /v1/logistic_management/inventory_adjustments/`, more info see [Swagger documentation](https://api.spacefill.fr/docs#/logistic-management%20(not%20implemented)/post_v1_logistic_management_inventory_adjustement_v1_logistic_management_inventory_adjustments__post)
-
+  - `POST /v1/logistic_management/inventory_adjustments/`, more info see [Swagger documentation](<https://api.spacefill.fr/docs#/logistic-management%20(not%20implemented)/post_v1_logistic_management_inventory_adjustement_v1_logistic_management_inventory_adjustments__post>)
 
 ## 2022-05-03
 
 - `master_items.transfered_to_erp_at`, `master_items.transfered_to_wms_at` and `master_items.transfered_to_tms_at` fields
-   are automatically reset (set to `null`) on each API or Web interface `master_items` update events
+  are automatically reset (set to `null`) on each API or Web interface `master_items` update events
 - `orders.transfered_to_erp_at`, `orders.transfered_to_wms_at` and `orders.transfered_to_tms_at` fields
-   are automatically reset (set to `null`) on each API or Web interface `orders` update events
+  are automatically reset (set to `null`) on each API or Web interface `orders` update events
 
 ## 2022-04-27
 
@@ -474,7 +468,6 @@ Updated endpoints:
   - `transfered_to_erp_at`
   - `transfered_to_wms_at`
   - `transfered_to_tms_at`
-
 
 ## 2022-04-26
 
