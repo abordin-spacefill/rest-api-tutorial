@@ -4,6 +4,8 @@
 
 Updated endpoints:
 
+- `POST /v1/logistic_management/orders/{order_id}/shipper_updates_order_action`
+  - add `pallet_sscc` field support
 - `GET /v1/logistic_management/orders/`
   - add `order_items.batch_name` field in response
 - `GET /v1/logistic_management/orders/{order_id}/`
