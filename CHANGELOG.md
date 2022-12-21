@@ -4,6 +4,8 @@
 
 Updated endpoints:
 
+- `POST /v1/logistic_management/inventory_adjustments/`
+  - `inventory_adjustement_items.item_reference` input field added
 - `POST /v1/logistic_management/orders/{order_id}/shipper_updates_order_action`
   - add `pallet_sscc` field support
 - `GET /v1/logistic_management/orders/`
