@@ -37,6 +37,15 @@ Updated endpoints:
 - `POST /v1/logistic_management/orders/{order_id}/shipper_validate_draft_order_action`
   - add `order_items.batch_name` field in response
 
+Bug fixed:
+
+- url hostname error in `first`, `prev`, `next`, `last` paginate fields for this response endpoints:
+  - `GET /v1/logistic_management/master_items/`
+  - `GET /v1/logistic_management/batches/`
+  - `GET /v1/logistic_management/orders/`
+  - `GET /v1/logistic_management/inventory_adjustments/`
+  - `GET /v1/logistic_management/pallet-ssccs/`
+
 
 ## 2022-11-25
 
