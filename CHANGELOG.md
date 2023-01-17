@@ -1,5 +1,52 @@
 # api.spacefill.fr changelog
 
+## 2023-01-16
+
+Updated endpoints:
+
+- `GET /v1/logistic_management/orders/`
+  - add `order_items.item_reference` field in response
+- `POST /v1/logistic_management/orders/entry/`
+  - add `order_items.item_reference` field in response
+- `POST /v1/logistic_management/orders/exit/`
+  - add `order_items.item_reference` field in response
+- `POST /v1/logistic_management/orders/{order_id}/warehouse_confirms_planned_execution_date`
+  - add `order_items.item_reference` field in response
+- `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action`
+  - add `order_items.item_reference` field in response
+- `POST /v1/logistic_management/orders/{order_id}/shipper_acknowledges_receipt_of_adjustment_action`
+  - add `order_items.item_reference` field in response
+- `POST /v1/logistic_management/orders/{order_id}/shipper_cancels_order_action`
+  - add `order_items.item_reference` field in response
+- `POST /v1/logistic_management/orders/{order_id}/shipper_reschedule_order_action`
+  - add `order_items.item_reference` field in response
+- `POST /v1/logistic_management/orders/{order_id}/shipper_suggests_planned_execution_date_action`
+  - add `order_items.item_reference` field in response
+- `POST /v1/logistic_management/orders/{order_id}/shipper_updates_order_action`
+  - add `order_items.item_reference` field in response
+- `POST /v1/logistic_management/orders/{order_id}/`
+  - add `order_items.item_reference` field in response
+- `POST /v1/logistic_management/orders/{order_id}/warehouse_adjust_stock_after_order_is_completed_action`
+  - add `order_items.item_reference` field in response
+- `POST /v1/logistic_management/orders/warehouse_creates_order_action`
+  - add `order_items.item_reference` field in response
+- `POST /v1/logistic_management/orders/{order_id}/warehouse_declines_planned_execution_date_action`
+  - add `order_items.item_reference` field in response
+- `POST /v1/logistic_management/orders/{order_id}/warehouse_emits_order_receipt_error_action`
+  - add `order_items.item_reference` field in response
+- `POST /v1/logistic_management/orders/{order_id}/warehouse_starts_unloading_action`
+  - add `order_items.item_reference` field in response
+- `POST /v1/logistic_management/orders/{order_id}/warehouse_finishes_unloading_action`
+  - add `order_items.item_reference` field in response
+- `POST /v1/logistic_management/orders/{order_id}/warehouse_starts_preparation_action`
+  - add `order_items.item_reference` field in response
+- `POST /v1/logistic_management/orders/{order_id}/warehouse_finishes_preparation_action`
+  - add `order_items.item_reference` field in response
+- `POST /v1/logistic_management/orders/shipper_create_or_update_draft_order_action`
+  - add `order_items.item_reference` field in response
+- `POST /v1/logistic_management/orders/{order_id}/shipper_validate_draft_order_action`
+  - add `order_items.item_reference` field in response
+
 ## 2022-12-21
 
 Updated endpoints:
@@ -21,7 +68,7 @@ Updated endpoints:
 - `POST /v1/logistic_management/orders/{order_id}/shipper_cancels_order_action`
   - add `order_items.batch_name` field in response
 - `POST /v1/logistic_management/orders/{order_id}/shipper_updates_order_action`
-  - add `order_items.batch_name` field in response
+  - add `order_items.batch_name` field in response  
 - `POST /v1/logistic_management/orders/warehouse_creates_order_action`
   - add `order_items.batch_name` field in response
 - `POST /v1/logistic_management/orders/{order_id}/warehouse_emits_order_receipt_error_action`
