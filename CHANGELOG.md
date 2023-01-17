@@ -6,67 +6,67 @@ Updated endpoints:
 
 - `GET /v1/logistic_management/orders/`
   - add `order_items.item_reference` field in response
-  - add `order_items.item_seleciton_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
+  - add `order_items.item_selection_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
 - `POST /v1/logistic_management/orders/entry/`
   - add `order_items.item_reference` field in response
 - `POST /v1/logistic_management/orders/exit/`
-  - by default, if `order_items.batch_id` or `order_items.batch_name` is empty, then `item_seleciton_method` is set with `WHATEVER_THE_BATCH` value
-  - add `order_items.item_seleciton_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
+  - by default, if `order_items.batch_id` or `order_items.batch_name` is empty, then `item_selection_method` is set with `WHATEVER_THE_BATCH` value
+  - add `order_items.item_selection_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
   - add `order_items.item_reference` field in response
 - `POST /v1/logistic_management/orders/{order_id}/warehouse_confirms_planned_execution_date`
   - add `order_items.item_reference` field in response
-  - add `order_items.item_seleciton_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
+  - add `order_items.item_selection_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
 - `POST /v1/logistic_management/orders/{order_id}/warehouse_acknowledges_receipt_of_order_action`
   - add `order_items.item_reference` field in response
-  - add `order_items.item_seleciton_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
+  - add `order_items.item_selection_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
 - `POST /v1/logistic_management/orders/{order_id}/shipper_acknowledges_receipt_of_adjustment_action`
   - add `order_items.item_reference` field in response
-  - add `order_items.item_seleciton_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
+  - add `order_items.item_selection_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
 - `POST /v1/logistic_management/orders/{order_id}/shipper_cancels_order_action`
   - add `order_items.item_reference` field in response
-  - add `order_items.item_seleciton_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
+  - add `order_items.item_selection_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
 - `POST /v1/logistic_management/orders/{order_id}/shipper_reschedule_order_action`
   - add `order_items.item_reference` field in response
-  - add `order_items.item_seleciton_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
+  - add `order_items.item_selection_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
 - `POST /v1/logistic_management/orders/{order_id}/shipper_suggests_planned_execution_date_action`
   - add `order_items.item_reference` field in response
-  - add `order_items.item_seleciton_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
+  - add `order_items.item_selection_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
 - `POST /v1/logistic_management/orders/{order_id}/shipper_updates_order_action`
   - add `order_items.item_reference` field in response
-  - add `order_items.item_seleciton_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
+  - add `order_items.item_selection_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
 - `POST /v1/logistic_management/orders/{order_id}/`
   - add `order_items.item_reference` field in response
-  - add `order_items.item_seleciton_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
+  - add `order_items.item_selection_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
 - `POST /v1/logistic_management/orders/{order_id}/warehouse_adjust_stock_after_order_is_completed_action`
   - add `order_items.item_reference` field in response
-  - add `order_items.item_seleciton_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
+  - add `order_items.item_selection_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
 - `POST /v1/logistic_management/orders/warehouse_creates_order_action`
   - add `order_items.item_reference` field in response
-  - add `order_items.item_seleciton_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
+  - add `order_items.item_selection_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
 - `POST /v1/logistic_management/orders/{order_id}/warehouse_declines_planned_execution_date_action`
   - add `order_items.item_reference` field in response
-  - add `order_items.item_seleciton_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
+  - add `order_items.item_selection_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
 - `POST /v1/logistic_management/orders/{order_id}/warehouse_emits_order_receipt_error_action`
   - add `order_items.item_reference` field in response
-  - add `order_items.item_seleciton_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
+  - add `order_items.item_selection_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
 - `POST /v1/logistic_management/orders/{order_id}/warehouse_starts_unloading_action`
   - add `order_items.item_reference` field in response
-  - add `order_items.item_seleciton_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
+  - add `order_items.item_selection_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
 - `POST /v1/logistic_management/orders/{order_id}/warehouse_finishes_unloading_action`
   - add `order_items.item_reference` field in response
-  - add `order_items.item_seleciton_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
+  - add `order_items.item_selection_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
 - `POST /v1/logistic_management/orders/{order_id}/warehouse_starts_preparation_action`
   - add `order_items.item_reference` field in response
-  - add `order_items.item_seleciton_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
+  - add `order_items.item_selection_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
 - `POST /v1/logistic_management/orders/{order_id}/warehouse_finishes_preparation_action`
   - add `order_items.item_reference` field in response
-  - add `order_items.item_seleciton_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
+  - add `order_items.item_selection_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
 - `POST /v1/logistic_management/orders/shipper_create_or_update_draft_order_action`
   - add `order_items.item_reference` field in response
-  - add `order_items.item_seleciton_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
+  - add `order_items.item_selection_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
 - `POST /v1/logistic_management/orders/{order_id}/shipper_validate_draft_order_action`
   - add `order_items.item_reference` field in response
-  - add `order_items.item_seleciton_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
+  - add `order_items.item_selection_method` field in response, with `WHATEVER_THE_BATCH` or `WITH_BATCH_ID` value
 
 ## 2022-12-21
 
