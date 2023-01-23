@@ -2,8 +2,6 @@
 
 Une version plus complète de cette documentation est disponible en anglais : [README.md](README.md).
 
-* [FAQ](#faq)
-  * [Quelle est la définition des différents statuts des "orders" ?](#quelle-est-la-définition-des-différents-statuts-des-"orders"-?)
 
 Voir aussi : [CHANGELOG.md](./CHANGELOG.md)
 

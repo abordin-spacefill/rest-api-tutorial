@@ -3,18 +3,7 @@
 This tutorial is based on [`curl`](https://en.wikipedia.org/wiki/CURL) command line tool.
 
 - [SpaceFill REST API usage tutorial](#spacefill-rest-api-usage-tutorial)
-  - [Environments](#environments)
-  - [Getting started](#getting-started)
-  - [CRUD list](#crud-list)
-  - [FAQ](#faq)
-    - [What is the definition of the different order status?](#what-is-the-definition-of-the-different-order-status)
-    - [How can a client get orders.status update (events) information?](#how-can-a-client-get-ordersstatus-update-events-information)
-      - [Client pull method](#client-pull-method)
-      - [Server push method with webhook](#server-push-method-with-webhook)
-    - [How to manage order documents (attachments)?](#how-to-manage-order-documents-attachments)
-    - [How entry_expeditor\* and exit_final_recipient\* fields work on /v1/orders/*](#how-entry_expeditor-and-exit_final_recipient-fields-work-on-v1orders)
-    - [How to use `edi_erp_id`, `edi_wms_id`, `edi_tms_id` fields on `orders` and `master_items`?](#how-to-use-edi_erp_id-edi_wms_id-edi_tms_id-fields-on-orders-and-master_items)
-    - [How to refer to a warehouse using your own identifiers?](#how-to-refer-to-a-warehouse-using-your-own-identifiers)
+
 
 See also: [CHANGELOG.md](./CHANGELOG.md)
 
@@ -199,10 +188,6 @@ $ curl -sLX 'POST' \
 
 You can now view your data on Spacefill app at `https://app.spacefill.fr`:
 
-- To view your orders go to [`https://app.spacefill.fr/logistic-management/orders/`](https://app.spacefill.fr/logistic-management/orders/)
-  [<img src='spacefill-app-orders-view.png' width='600' />](./spacefill-app-orders-view.png)
-- To view your master_items go to [`https://app.spacefill.fr/logistic-management/inventory/items/`](https://app.spacefill.fr/logistic-management/inventory/items/)
-  [<img src='spacefill-app-master-items-view.png' width='600' />](./spacefill-app-master-items-view.png)
 
 The `edi_erp_id`, `edi_wms_id` and `edi_tms_id` fields can be used to identify the `master_item` or `order` using your own ERP, WMS or TMS resource `id` (identifiers), instead of Spacefill `id`. These fields can only be fetched, inserted and updated using the API. They are not visible on the Spacefill app. For more information, you can read the [scenario presented below](#how-to-use-edi_erp_id-edi_wms_id-edi_tms_id-fields-on-orders-and-master_items).
 
