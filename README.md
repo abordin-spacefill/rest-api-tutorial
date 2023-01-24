@@ -1,5 +1,7 @@
 # Redocly API developer portal
 
+Test update
+
 ## Prerequisites
 
 - [node.js >= 12.22.6 and <= 16.x](https://nodejs.org/en/)
